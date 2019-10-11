@@ -2,21 +2,24 @@
 <hr />
 
 <div class="card-columns">
-  <div class="card">
-    <img class="card-img-top img-fluid" src="assets/img/aquaman.png" alt="Card img cap" />
+  <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
+    <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre"/>
     <div class="card-block">
-      <h4 class="card-title">Card title</h4>
+      <h4 class="card-title">{{ heroe.nombre }}</h4>
       <p class="card-text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        {{ heroe.bio }}
       </p>
       <p class="card-text">
-        <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore,
-          facere vero!</small>
+        <small class="text-muted">
+          {{ heroe.aparicion }}
+        </small>
       </p>
-
-      <button type="button" class="btn btn-outline-primary btn-block">
+      <!-- <button type="button" class="btn btn-outline-primary btn-block">
         Ver mas...
-      </button>
+      </button> -->
+
+      <a [routerLink]="['heroe',i]" class="btn btn-outline-primary">Ver mas link...</a>
+
     </div>
   </div>
 </div>
